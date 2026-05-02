@@ -34,10 +34,10 @@ That's it. No menus. No assets. No GUIDs. Just types.
 ## 🚀 Features
 
 - 🧩 **Entity-Component definitions** — compose data the way you compose behaviors.
-- 🪞 **Auto-discovery** — every `CMSEntity` subclass is registered for free via reflection.
+- 🔍 **Auto-discovery** — every `CMSEntity` subclass is registered for free via reflection.
 - 📦 **Hybrid authoring** — code-defined entities + optional Unity prefabs from `Resources/CMS/`.
 - ⚡ **Hot-reload** — `CMS → Reload` from the menu bar, no domain reload required.
-- 🪶 **Tiny surface area** — one static class, a handful of helpers, ~200 LOC of runtime.
+- 🍃 **Tiny surface area** — one static class, a handful of helpers, ~200 LOC of runtime.
 - 🧠 **Type-safe lookups** — `CMS.Get<T>()` and `CMS.GetAll<T>()` return strongly-typed results.
 
 ---
@@ -71,10 +71,12 @@ https://github.com/koster/CMS.git
 ```
 
 > **Requires** Unity `2020.1` or newer and [`serializereference-extensions`](https://github.com/mackysoft/Unity-SerializeReferenceExtensions) for inspector authoring.
+>
+> 💡 On first import, CMS will prompt you once to add the OpenUPM scoped registry and the `serializereference-extensions` dependency to your `Packages/manifest.json` automatically. Choose *Don't ask again* to silence it; re-run any time via **CMS → Check Dependencies**.
 
 ---
 
-## 🧑‍💻 Quick Start
+## 💻 Quick Start
 
 ### 1. Define an entity
 
@@ -125,9 +127,10 @@ Need designers in the loop? Drop a `CMSEntityPfb` MonoBehaviour onto a prefab in
 
 ## 🔧 Menu Items
 
-| Menu                | Action                                  |
-| ------------------- | --------------------------------------- |
-| `CMS → Reload`      | Re-scans assemblies + Resources folder. |
+| Menu                          | Action                                                 |
+| ----------------------------- | ------------------------------------------------------ |
+| `CMS → Reload`                | Re-scans assemblies + Resources folder.                |
+| `CMS → Check Dependencies`    | Verify OpenUPM registry + required deps in manifest.   |
 
 ---
 
@@ -137,10 +140,12 @@ Need designers in the loop? Drop a `CMSEntityPfb` MonoBehaviour onto a prefab in
 CMS/
 ├── Runtime/
 │   ├── CMS/
-│   │   ├── CMS.cs              # the whole runtime
-│   │   └── Common/             # built-in components (SFX, tags, etc.)
+│   │   ├── CMS.cs                      # the whole runtime
+│   │   └── Common/                     # built-in components (SFX, tags, etc.)
 │   └── Editor/
-│       └── CMSMenuItems.cs     # CMS → Reload
+│       ├── CMSMenuItems.cs             # CMS → Reload
+│       └── Bootstrap/                  # standalone editor asmdef
+│           └── CMSDependencyBootstrap  # auto-installs OpenUPM dep
 ├── package.json
 └── LICENSE.md
 ```
