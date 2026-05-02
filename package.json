@@ -1,21 +1,9 @@
 {
     "name": "com.xk.cms",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "displayName": "CMS",
     "description": "A simple content management system!",
     "unity": "2020.1",
-    "scopedRegistries": [
-        {
-            "name": "OpenUPM",
-            "url": "https://package.openupm.com",
-            "scopes": [
-                "com.mackysoft"
-            ]
-        }
-    ],
-    "dependencies": {
-        "com.mackysoft.serializereference-extensions": "1.6.1"
-    },
     "author": {
         "name": "xk",
         "email": "itiskoster@gmail.com",
