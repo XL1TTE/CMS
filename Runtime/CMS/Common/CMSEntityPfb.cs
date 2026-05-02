@@ -1,9 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
+#if MACKYSOFT_SUBCLASSSELECTOR
+using MackySoft.SerializeReferenceExtensions;
+#endif
 
 public class CMSEntityPfb : MonoBehaviour
 {
+#if MACKYSOFT_SUBCLASSSELECTOR
     [SerializeReference, SubclassSelector]
+#else
+    [SerializeReference]
+#endif
     public List<EntityComponentDefinition> Components;
 
     public string GetId()
